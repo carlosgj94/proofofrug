@@ -26,7 +26,7 @@ export default function Home() {
   let [claimed, setClaimed] = useState(false);
   let [claiming, setClaiming] = useState(false);
 
-  let web3Modal: typeof Web3Modal
+  let web3Modal: any
   if (process.browser) {
     web3Modal = new Web3Modal({
       cacheProvider: true,
