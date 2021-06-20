@@ -18,7 +18,7 @@ const providerOptions = {
 }
 
 export default function Home() {
-  let [web3, setWeb3] = useState({});
+  let [web3, setWeb3] = useState<any>({});
   let [account, setAccount] = useState('');
   let [chainId, setChainId] = useState(0);
   let [hasBalance, setHasBalance] = useState(false);
