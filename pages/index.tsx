@@ -95,7 +95,7 @@ export default function Home() {
       <main className={styles.header}>
         <h1 className={styles.title}>Bankrunner</h1>
 
-        <a href="https://opensea.io/collection/bankrunner-yf94gwllm8" target="_blank">
+        <a href="https://opensea.io/collection/bankrunner-yf94gwllm8" target="_blank" rel="noreferrer">
           <Image src={nftImage} className={styles.logo} alt="logo" />
         </a>
         <h5 className={[styles.description, styles.descriptionSize].join(' ')}>
