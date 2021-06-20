@@ -13,8 +13,8 @@
   color: white;
 }
 
-.logo {
-  height: 45vmin;
+.imageWrapper div:first-child {
+  width: 50vmin;
 }
 
 .description {
