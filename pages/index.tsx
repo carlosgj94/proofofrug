@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head'
+import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import nftImage from './nft-w-frame.png'
 
 import Web3 from "web3";
 import Web3Modal from "web3modal";
@@ -94,7 +96,7 @@ export default function Home() {
         <h1 className={styles.title}>Bankrunner</h1>
 
         <a href="https://opensea.io/collection/bankrunner-yf94gwllm8" target="_blank">
-          <img src="/nft-w-frame.png" className={styles.logo} alt="logo" />
+          <Image src={nftImage} className={styles.logo} alt="logo" />
         </a>
         <h5 className={[styles.description, styles.descriptionSize].join(' ')}>
           Holder, claim your Titan bank run NFT and keep your proof of rug forever.
