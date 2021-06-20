@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import nftImage from './nft-w-frame.png'
+import nftImage from '../public/nft-w-frame.png'
 
 import Web3 from "web3";
 import Web3Modal from "web3modal";
