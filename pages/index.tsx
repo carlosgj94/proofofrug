@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -26,6 +26,7 @@ export default function Home() {
   let [hasMinted, setHasMinted] = useState(true);
   let [claimed, setClaimed] = useState(false);
   let [claiming, setClaiming] = useState(false);
+  let [mintFinished, setMintFinished] = useState(false);
 
   let web3Modal: any
   if (process.browser) {
@@ -67,7 +68,16 @@ export default function Home() {
     }
   }
   const bottomButton = () => {
-    if (claiming) {
+    if (mintFinished) {
+      return (<h5 className={styles.description}>
+        All 1000 rugs have been claimed, 
+        <a
+          className={styles.opensea}
+          href="https://opensea.io/assets/bankrunner-yf94gwllm8?search[resultModel]=ASSETS&search[sortAscending]=false&search[sortBy]=BIRTH_DATE&search[toggles][0]=BUY_NOW">Go to OpenSea to get one.
+        </a>
+        </h5>
+      )
+    } else if (claiming) {
       return <h5 className={styles.description}>NFT being claimed...</h5>
     } if (claimed) {
       return <h4 className={[styles.win, styles.tada].join(' ')}>Rug claimed!</h4>
@@ -83,6 +93,21 @@ export default function Home() {
       return <button className={styles.btn} onClick={claimToken} >Claim NFT</button>
     }
   }
+
+  useEffect(() => {
+    let mintStatus = async () => {
+      let provider = await web3Modal.connect();
+      setWeb3(new Web3(provider));
+      let web3: any = new Web3(provider);
+
+      let Contract = new web3.eth.Contract(TitanBankRunner.abi, '0xB4D21CAF1cc3DAdec5EEcf753F5fc23094DDFb65');
+      let totalMinted = await Contract.methods.tokenCounter().call()
+      if (totalMinted > 999) setMintFinished(true);
+    }
+
+    mintStatus();
+  }, []);
+
 
   return (
     <div className={styles.container}>
