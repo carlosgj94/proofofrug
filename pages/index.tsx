@@ -96,9 +96,7 @@ export default function Home() {
 
   useEffect(() => {
     let mintStatus = async () => {
-      let provider = await web3Modal.connect();
-      setWeb3(new Web3(provider));
-      let web3: any = new Web3(provider);
+      let web3: any = new Web3(`https://polygon-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA}`);
 
       let Contract = new web3.eth.Contract(TitanBankRunner.abi, '0xB4D21CAF1cc3DAdec5EEcf753F5fc23094DDFb65');
       let totalMinted = await Contract.methods.tokenCounter().call()
