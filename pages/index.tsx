@@ -7,7 +7,7 @@ import nftImage from '../public/nft-w-frame.png'
 import Web3 from "web3";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import TitanBankRunner from "../artifacts/TitanBankRunner.json";
+import TitanBankRunner from "../artifacts/contracts/TitanBankRunner.sol/BankRunner.json";
 
 const providerOptions = {
   walletconnect: {
