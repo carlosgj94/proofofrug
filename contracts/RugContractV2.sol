@@ -21,7 +21,7 @@ contract BankRunner is ERC721URIStorage, Ownable {
 
   function mintCollectible() public returns (uint256) {
     require(tokenCounter < 1000, "All tokens already minted");
-    //require(titanToken.balanceOf(msg.sender) > 0, "Owner doesn't have Titan");
+    require(titanToken.balanceOf(msg.sender) > 0, "Owner doesn't have Titan");
     require(minted[msg.sender] == false, "NFT already minted");
     minted[msg.sender] = true;
 
